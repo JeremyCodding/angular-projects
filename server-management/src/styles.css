@@ -16,6 +16,9 @@ body {
 main {
   width: 80%;
   margin: 3rem 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header {
@@ -72,6 +75,8 @@ nav ul li a:hover {
 }
 
 #dashboard {
+  max-width: 1440px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
