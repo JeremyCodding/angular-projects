@@ -1,9 +1,9 @@
+import { ApplicationConfig } from '@angular/core';
 import {
   provideRouter,
   withComponentInputBinding,
   withRouterConfig,
 } from '@angular/router';
-import { ApplicationConfig } from '@angular/core';
 
 import { routes } from './app.routes';
 
