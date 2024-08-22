@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Place } from '../place.model';
 import { PlacesComponent } from '../places.component';
 import { PlacesContainerComponent } from '../places-container/places-container.component';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-available-places',
@@ -20,8 +21,11 @@ export class AvailablePlacesComponent implements OnInit {
   ngOnInit() {
     const subscription = this.httpClient
       .get<{ places: Place[] }>('http://localhost:3000/places')
+      .pipe(map((resData) => resData.places))
       .subscribe({
-        next: (resData) => console.log(resData.places),
+        next: (places) => {
+          this.places.set(places);
+        },
       });
 
     this.destroyRef.onDestroy(() => {
